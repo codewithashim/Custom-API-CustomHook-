@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./home.scss";
 
 const Home = () => {
+  const [error, loading] = useFetch();
   const [data] = useFetch("https://www.boredapi.com/api/activity");
   console.log(data);
 
@@ -14,6 +15,10 @@ const Home = () => {
   return (
     <>
       <section>
+        {
+          // loading
+          loading && <div className="text-black">Loading...</div>
+        }
         <div class="max-w-sm rounded overflow-hidden shadow-lg">
           <img
             class="w-full"
@@ -29,6 +34,8 @@ const Home = () => {
               #{data?.type}
             </span>
           </div>
+
+          <div>{error && <div className="text-red-500">{error}</div>}</div>
           <div className="my-4">
             <Link onClick={refreshBtn} className="btn borader refreshBtn">
               Refresh
