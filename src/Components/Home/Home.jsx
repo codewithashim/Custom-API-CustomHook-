@@ -7,16 +7,6 @@ const Home = () => {
   const [data] = useFetch("https://www.boredapi.com/api/activity");
   console.log(data);
 
-  // const {
-  //   content,
-  //   author,
-  //   tags,
-  //   authorSlug,
-  //   length,
-  //   dateAdded,
-  //   dateModified,
-  // } = data;
-
   const refreshBtn = () => {
     window.location.reload();
   };
